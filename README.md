@@ -4,7 +4,7 @@
 
 ## Contributers:
 
-### Philip Jansson
+###[Philip Jansson](https://github.com/Gitphil93) 
 
 ### David Obrant
 

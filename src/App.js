@@ -2,7 +2,7 @@
 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 // pages
-//import Home from './views/Home';
+import Home from './views/Home';
 import Menu from './views/Menu';
 import About from './views/About';
 import Status from './views/Status';
@@ -14,7 +14,8 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={ <About/> } />
+                <Route path="/" element={ <Home/> } />
+                    
                     <Route path="/menu" element={ <Menu/> } />
                     <Route path="/about" element={ <About/> } /> 
                     <Route path="/status" element={ <Status/> } />

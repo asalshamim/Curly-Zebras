@@ -6,9 +6,9 @@
 
 ### [Philip Jansson](https://github.com/Gitphil93)
 
-### David Obrant
+### [David Obrant](https://github.com/davidobrant)
 
-### Asal Shamim
+### [Asal Shamim](https://github.com/asalshamim)
 
 ### Leticia Letele
 

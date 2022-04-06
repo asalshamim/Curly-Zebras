@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-//import { useHistory } from 'react-router-dom';
+
 import droneSvg from '../assets/graphics/drone.svg';
 import loader from '../assets/graphics/drone.svg';
 
@@ -12,7 +12,9 @@ export default function Status() {
 
     useEffect(() => {
         setLoading(true);
-        fetch('http:', {
+        fetch(`https://my-json-server.typicode.com/zocom-christoffer-wallenberg/airbean/order`,
+        
+        {
             method: 'post',
         })
             .then((response) => response.json())
@@ -43,6 +45,7 @@ export default function Status() {
                 <h2 className="status-h2-styling">Din beställning <br/> är på väg!</h2>
             </div>
             <p className="eta-time"><strong>{eta}</strong> minuter</p>
+            <button > Ok, Cool! </button>
             
         </div>
     )

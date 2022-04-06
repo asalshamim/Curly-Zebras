@@ -321,7 +321,7 @@
   background-color: white;
   position: absolute;
   right: -17px;
-  width: 340px;
+  width: 440px;
   height: 578px;
   z-index: 5;
   padding: 40px 15px;
@@ -439,6 +439,22 @@
   text-align: center;
   padding-top: 17px;
 }
+.btn{
+  width: 73%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: #2F2926;
+  color: #fff;
+  border-radius: 3.125rem;
+  border: none;
+  font-family: 'PT Serif', serif;
+  margin: 25px 45px 0 55px;
+  
+  text-decoration: none;
+  margin-bottom: 20px;
+  outline: none;
+}
 
 /* hamburger icon */
 
@@ -544,3 +560,5 @@
     font-weight: 300;
     margin-bottom: 5px;
 }
+
+

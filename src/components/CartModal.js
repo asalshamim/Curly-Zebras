@@ -7,7 +7,7 @@ import deleteProduct from '../redux/actions/deleteProduct';
 import increaseArrow from '../assets/graphics/arrow-up.svg';
 import decreaseArrow from '../assets/graphics/arrow-down.svg';
 // routing
-//import { useHistory } from 'react-router-dom';
+
 
 // function that calculates the price and also checks the quantity and multiplies it with the price.
 function calcTotalPrice(array) {
@@ -119,6 +119,7 @@ export default function CartModal({ setNumInCart }) {
                     <p className="total-price">{totalPrice} kr</p>
                 </div>
                 <p className="tax-shipping-label">inkl moms + drönarleverans</p>
+                <a href='/Status'><button className="btn" >Take my money!</button></a>
                 
             </div>
         </div>

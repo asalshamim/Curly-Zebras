@@ -320,7 +320,7 @@
 .modal-container{
   background-color: white;
   position: absolute;
-  left: 17px;
+  right: -17px;
   width: 340px;
   height: 578px;
   z-index: 5;

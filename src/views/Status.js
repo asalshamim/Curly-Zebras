@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 //import { useHistory } from 'react-router-dom';
 import droneSvg from '../assets/graphics/drone.svg';
 import loader from '../assets/graphics/drone.svg';

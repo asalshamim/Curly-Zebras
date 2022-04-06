@@ -1,8 +1,10 @@
-let initialState = {
-    products: []
-}
+const initialState = {
+    products: [],
+};
 
 const menuReducer = (state = initialState, action) => {
+    console.log(action.payload);
+  console.log(state);
     switch(action.type) {
         case 'ADD_PRODUCT':
             const concatedArr = state.products.concat(action.payload);

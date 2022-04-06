@@ -7,6 +7,7 @@ import increaseProductQuantity from '../redux/actions/increaseProductQuantity';
 import decreaseProductQuantity from '../redux/actions/decreaseProductQuantity';
 import Nav from '../components/Nav';
 // icons
+//import CartModal from '../components/CartModal';
 import CartIcon from '../components/CartIcon';
 import addIcon from '../assets/graphics/add.svg';
 
@@ -15,20 +16,21 @@ export default function Menu() {
 
     const dispatch = useDispatch();
     const products = useSelector(state => state.products);
-    const [menus, setMenus] = useState([]);
+    const [menu, setMenus] = useState([]);
     const [numProductsInCart, setNumProductsInCart] = useState();
 
     useEffect(() => {
+        const fetchmenu = async () => {
+        let response = await fetch("https://my-json-server.typicode.com/zocom-christoffer-wallenberg/airbean/menu"
+        );
+         const data = await response.json();
+         data.forEach((element) => {
+            element.amount = 1;
+        });
+        console.log(data);
+        setMenus(data);
+    };
         
-        fetch("https://jenseneducation.learnpoint.se/GroupForms/Group_LearningContent_Item.aspx?Id=1009&ItemId=4063#:~:text=%C2%A0%20https%3A//my%2Djson%2Dserver.typicode.com/zocom%2Dchristoffer%2Dwallenberg/airbean/menu")
-            .then((response) => response.json())
-            .then((data) => {
-                for (const obj of data.menu) {
-                    obj.quantity = 0;
-                }
-                setMenus(data.menu);
-            }
-        )
         // when we reload the page we want to check if there is something in our localStorage.
         // if there is, we want to add it to our redux.
         if (localStorage.getItem('myCart') !== null) {
@@ -37,32 +39,34 @@ export default function Menu() {
         
             // we loop through our localStorage and we synchronize our menu state with the quantity from localStorage.
             for (let i = 0; i < myCart.length; i++) {
-                for (let j = 0; j < menus.length; j++) {
-                    if (myCart[i].id === menus[j].id) {
+                for (let j = 0; j < menu.length; j++) {
+                    if (myCart[i].id === menu[j].id) {
                         const localStorageQuanity = myCart[i].quantity;
-                        menus[j].quantity = localStorageQuanity;
+                        menu[j].quantity = localStorageQuanity;
                     }
                 }
             }
         }
         // eslint-disable-next-line
+        fetchmenu();
     }, []);
+    console.log(menu);
 
     useEffect(() => {
         // same use as above except that we now even listen to changes in our redux in order to sync our cart.
         const myCart = JSON.parse(localStorage.getItem('myCart'));
         if ((localStorage.getItem('myCart') !== null) && (myCart.length !== 0)) {
             for (let i = 0; i < myCart.length; i++) {
-                for (let j = 0; j < menus.length; j++) {
-                    if (myCart[i].id === menus[j].id) {
+                for (let j = 0; j < menu.length; j++) {
+                    if (myCart[i].id === menu[j].id) {
                         const localStorageQuanity = myCart[i].quantity;
-                        menus[j].quantity = localStorageQuanity;
+                        menu[j].quantity = localStorageQuanity;
                     }
                 }
             }
         } else {
             // here we make a deep copy of our menu array and we loop through our new array and assign quantity to 0.
-            let menuArr = Object.assign([], menus);
+            let menuArr = Object.assign([], menu);
             for (const obj of menuArr) {
                 obj.quantity = 0;
             }
@@ -92,15 +96,15 @@ export default function Menu() {
             setNumProductsInCart(JSON.parse(localStorage.getItem('myCart')).length);
         } else {
             // If our product was NOT found in our redux state, we add it then increase its quantity to 1.
-            dispatch(addProduct(menus[id-1]));
+            dispatch(addProduct(menu[id-1]));
             dispatch(increaseProductQuantity(id));
 
             // we also add it to localStorage and our cart amount to our numProductsInCart
             if (localStorage.getItem('myCart') === null) {
-                localStorage.setItem('myCart', JSON.stringify([menus[id-1]]));
+                localStorage.setItem('myCart', JSON.stringify([menu[id-1]]));
                 setNumProductsInCart(JSON.parse(localStorage.getItem('myCart')).length);
             } else {
-                localStorage.setItem('myCart', JSON.stringify([...JSON.parse(localStorage.getItem('myCart')), menus[id-1]]));
+                localStorage.setItem('myCart', JSON.stringify([...JSON.parse(localStorage.getItem('myCart')), menu[id-1]]));
                 setNumProductsInCart(JSON.parse(localStorage.getItem('myCart')).length);
             }
         }
@@ -116,7 +120,7 @@ export default function Menu() {
             </header>
             <h1 className="menu-heading">Meny</h1>
             <main className="menu-wrapper">
-                {menus.map((menu) => (
+                {menu.map((menu) => (
                 <section className="product-container" key={menu.id}>
                     <div className="add-to-cart-container">
                         <div onClick={() => handleClickedProduct(menu.id)} className="add-to-cart-btn">
@@ -142,4 +146,4 @@ export default function Menu() {
             </main>
         </div>
     )
-}
+}   

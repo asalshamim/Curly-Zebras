@@ -6,10 +6,6 @@
 
 ### [Philip Jansson](https://github.com/Gitphil93)
 
-### [David Obrant](https://github.com/davidobrant)
-
 ### [Asal Shamim](https://github.com/asalshamim)
 
-### Leticia Letele
-
-### Lovisa Tienvieri
+### [David Obrant](https://github.com/davidobrant)

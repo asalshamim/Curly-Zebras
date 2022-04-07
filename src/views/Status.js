@@ -52,7 +52,7 @@ export default function Status() {
                 <h2 className="status-h2-styling">Din beställning <br/> är på väg!</h2>
             </div>
             <p className="eta-time"><strong>{eta}</strong> minuter</p>
-            <button onClick={routeChange} > Ok, Cool! </button>
+            <button className="status-btn" onClick={routeChange} > Ok, Cool! </button>
 
         </div>
     )

@@ -22,7 +22,7 @@ export default function Menu({ closeMenu }) {
                 <hr className="link-divider" />
                 <Link to='/about' className="nav-link" onClick={(e) => handleClick(e)}>Vårt kaffe</Link>
                 <hr className="link-divider" />
-                <Link to='/' className="nav-link" onClick={(e) => handleClick(e)}>Orderstatus</Link>
+                <Link to='/status' className="nav-link" onClick={(e) => handleClick(e)}>Orderstatus</Link>
                 <hr className="link-divider" />
             </div>
         </div>

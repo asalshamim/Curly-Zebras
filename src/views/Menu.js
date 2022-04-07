@@ -21,15 +21,15 @@ export default function Menu() {
 
     useEffect(() => {
         const fetchmenu = async () => {
-        let response = await fetch("https://my-json-server.typicode.com/zocom-christoffer-wallenberg/airbean/menu"
-        );
-         const data = await response.json();
-         data.forEach((element) => {
-            element.amount = 1;
-        });
-        console.log(data);
-        setMenus(data);
-    };
+            let response = await fetch("https://my-json-server.typicode.com/zocom-christoffer-wallenberg/airbean/menu"
+            );
+            const data = await response.json();
+            data.forEach((element) => {
+                element.amount = 1;
+            });
+            console.log(data);
+            setMenus(data);
+        };
         
         // when we reload the page we want to check if there is something in our localStorage.
         // if there is, we want to add it to our redux.
@@ -47,9 +47,9 @@ export default function Menu() {
                 }
             }
         }
-        // eslint-disable-next-line
+        
         fetchmenu();
-    }, []);
+    });
     console.log(menu);
 
     useEffect(() => {
